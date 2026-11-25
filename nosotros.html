@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | SoporTEC</title>
+  <meta name="description" content="Conoce la historia de SoporTEC, un emprendimiento de soporte técnico en Comas, Lima, y a su equipo de trabajo.">
+  <meta name="keywords" content="soporte técnico, reparación de laptops, mantenimiento de PC, formateo, seguimiento de reparaciones, Comas, Lima, Perú">
+  <meta name="author" content="Equipo SoporTEC">
+  <meta name="theme-color" content="#052651">
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nosotros | SoporTEC">
+  <meta property="og:description" content="Conoce la historia de SoporTEC, un emprendimiento de soporte técnico en Comas, Lima, y a su equipo de trabajo.">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA Y NAVEGACIÓN ============ -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="SoporTEC, ir al inicio">Sopor<span>TEC</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en móviles (jQuery abre/cierra el menú) -->
+      <button class="menu-boton" id="menuBoton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">&#9776;</button>
+
+      <nav class="menu" id="menuNav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="seguimiento.html">Seguimiento</a></li>
+          <li><a href="nosotros.html" class="activo" aria-current="page">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======== HISTORIA Y REALIDAD PERUANA ======== -->
+    <section class="pagina-titulo">
+      <div class="contenedor historia">
+        <h1>Nuestra historia</h1>
+        <p>SoporTEC nació en Comas, Lima, para brindar soporte técnico confiable y transparente a estudiantes, docentes y familias.</p>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-necesidad">
+      <div class="contenedor historia">
+        <h2 id="titulo-necesidad">Una necesidad real en nuestro barrio</h2>
+        <p>Muchas personas dependen de una laptop o una PC para estudiar, enseñar o trabajar, pero no siempre saben a quién acudir cuando falla: encuentran precios poco claros, diagnósticos confusos y servicios sin garantía.</p>
+        <p>SoporTEC responde a esa realidad con un servicio cercano: diagnóstico claro, tarifas publicadas y 30 días de respaldo técnico. Este sitio web es nuestra primera presencia digital, para que más personas conozcan lo que hacemos y nos contacten fácilmente.</p>
+      </div>
+    </section>
+
+    <section class="seccion seccion--blanca" aria-labelledby="titulo-publico">
+      <div class="contenedor historia">
+        <h2 id="titulo-publico">A quién ayudamos</h2>
+        <p>SoporTEC está pensado para estudiantes y para cualquier familia que usa laptops o PCs. Muchos de nuestros usuarios consultan desde el celular, por eso el sitio se adapta a móviles, tablets y computadoras.</p>
+        <h2 style="margin-top:28px;">Nuestra pregunta de trabajo</h2>
+        <p>¿Cómo puede un sitio web dinámico y responsivo ayudar a que las personas den seguimiento a la reparación de sus computadoras en el contexto peruano? Nuestra respuesta es el <a href="seguimiento.html">seguimiento en línea</a>: cada etapa del servicio (diagnóstico, cotización, espera de repuestos, reparación y entrega) se puede consultar desde cualquier dispositivo.</p>
+      </div>
+    </section>
+
+    <!-- ======== EQUIPO DE TRABAJO (3 tarjetas responsivas) ======== -->
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Equipo de trabajo</h2>
+        <div class="tarjetas">
+          <article class="tarjeta integrante">
+            <div class="avatar" aria-hidden="true">S</div>
+            <h3>Sthiven Piero León Porras</h3>
+            <p class="codigo">Código: 26101013</p>
+          </article>
+          <article class="tarjeta integrante">
+            <div class="avatar" aria-hidden="true">J</div>
+            <h3>Juan Carlos Inga</h3>
+            <p class="codigo">Código: 26101030</p>
+          </article>
+          <article class="tarjeta integrante">
+            <div class="avatar" aria-hidden="true">J</div>
+            <h3>Josue Reyes</h3>
+            <p class="codigo">Código: 26101040</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <!-- El año se completa solo con JavaScript (js/dom.js) -->
+      <p>SoporTEC © <span id="anio">2026</span> — Soporte Técnico de Laptops y PCs (Comas, Lima, Perú)</p>
+      <p class="pie__enlaces">
+        <a href="index.html">Inicio</a> | <a href="servicios.html">Servicios</a> |
+        <a href="seguimiento.html">Seguimiento</a> | <a href="nosotros.html">Nosotros</a> | <a href="contacto.html">Contacto</a>
+        &nbsp;•&nbsp; <a href="https://wa.me/51999888777" target="_blank" rel="noopener">WhatsApp: +51 999 888 777</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (al final del body) ============ -->
+  <!-- 1) Librería jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2) Nuestros efectos con jQuery -->
+  <script src="js/main.js"></script>
+  <!-- 3) Manipulación del DOM con JavaScript puro -->
+  <script src="js/dom.js"></script>
+</body>
+</html>

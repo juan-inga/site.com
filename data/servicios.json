@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Limpieza interna + pasta térmica",
+    "precio": 50,
+    "detalle": "Abrimos el equipo, limpiamos el polvo de ventiladores y disipador, y cambiamos la pasta térmica. Recomendado si tu laptop se calienta o hace mucho ruido."
+  },
+  {
+    "id": 2,
+    "nombre": "Formateo + Windows + Office",
+    "precio": 40,
+    "detalle": "Instalación limpia de Windows y Office, con los controladores de tu equipo. Ideal si está lento, con errores o quieres empezar de cero."
+  },
+  {
+    "id": 3,
+    "nombre": "Upgrade SSD + clonación",
+    "precio": 60,
+    "detalle": "Cambiamos tu disco por un SSD y clonamos tu sistema para que conserves tus archivos y programas, con un arranque mucho más rápido."
+  },
+  {
+    "id": 4,
+    "nombre": "Eliminación de virus y optimización",
+    "precio": 35,
+    "detalle": "Detectamos y eliminamos virus y programas no deseados, y dejamos tu equipo ordenado para que funcione con mayor fluidez."
+  }
+]

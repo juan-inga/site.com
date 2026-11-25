@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoporTEC | Reparación y mantenimiento de laptops y PCs en Lima</title>
+  <meta name="description" content="SoporTEC: reparación y mantenimiento de laptops y PCs en Comas, Lima. Diagnóstico claro, precios transparentes y garantía formal.">
+  <meta name="keywords" content="soporte técnico, reparación de laptops, mantenimiento de PC, formateo, seguimiento de reparaciones, Comas, Lima, Perú">
+  <meta name="author" content="Equipo SoporTEC">
+  <meta name="theme-color" content="#052651">
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SoporTEC | Reparación y mantenimiento de laptops y PCs en Lima">
+  <meta property="og:description" content="SoporTEC: reparación y mantenimiento de laptops y PCs en Comas, Lima. Diagnóstico claro, precios transparentes y garantía formal.">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA Y NAVEGACIÓN ============ -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="SoporTEC, ir al inicio">Sopor<span>TEC</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en móviles (jQuery abre/cierra el menú) -->
+      <button class="menu-boton" id="menuBoton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">&#9776;</button>
+
+      <nav class="menu" id="menuNav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="seguimiento.html">Seguimiento</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======== BANNER PRINCIPAL / SLIDER (jQuery fadeIn / fadeOut) ======== -->
+    <section class="banner" aria-label="Banner principal">
+      <img class="banner__imagen" src="img/banner-inicio.jpg" width="1200" height="571" fetchpriority="high"
+           alt="Laptop con una onda azul y verde en la pantalla sobre un fondo azul oscuro">
+      <div class="contenedor slider">
+
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="slide__contenido">
+            <h1>Reparación y Mantenimiento de Laptops y PCs en el Perú</h1>
+            <p>Soporte técnico desde Comas, Lima, para estudiantes, docentes y familias.</p>
+            <a class="boton boton--pulso" href="contacto.html">Solicitar cotización</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="slide__contenido">
+            <h1>Sigue la reparación de tu equipo desde tu celular</h1>
+            <p>Consulta cada etapa: diagnóstico, cotización, repuestos, reparación y entrega. Sin llamadas repetitivas.</p>
+            <a class="boton boton--pulso" href="seguimiento.html">Consultar mi reparación</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide__contenido">
+            <h1>30 días de respaldo técnico en cada servicio</h1>
+            <p>Si algo falla después de la reparación, lo revisamos sin costo dentro del plazo.</p>
+            <a class="boton boton--pulso" href="contacto.html">Solicitar cotización</a>
+          </div>
+        </div>
+
+        <!-- Puntos para cambiar de slide -->
+        <div class="slider__puntos">
+          <button class="punto activo" type="button" aria-label="Ir al slide 1" aria-current="true"></button>
+          <button class="punto" type="button" aria-label="Ir al slide 2" aria-current="false"></button>
+          <button class="punto" type="button" aria-label="Ir al slide 3" aria-current="false"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== BIENVENIDA Y PROPUESTA DE VALOR ======== -->
+    <section class="seccion" id="bienvenida">
+      <div class="contenedor">
+        <div class="seccion__intro">
+          <!-- El texto de #saludo lo cambia js/dom.js según la hora del día -->
+          <h2 id="saludo">Bienvenido a SoporTEC</h2>
+          <p>Somos un emprendimiento de Comas, Lima, que cuida los equipos con los que estudias y trabajas. Nuestra propuesta es simple y la cumplimos en cada servicio.</p>
+        </div>
+        <div class="valores">
+          <div class="valor"><strong>Diagnóstico claro</strong> Te decimos qué falla y por qué, en palabras simples.</div>
+          <div class="valor"><strong>Precios transparentes</strong> Tarifas publicadas, sin cobros sorpresa.</div>
+          <div class="valor"><strong>Garantía formal</strong> 30 días de respaldo técnico por escrito.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== PROBLEMÁTICA QUE RESOLVEMOS ======== -->
+    <section class="seccion seccion--blanca" id="problematica" aria-labelledby="titulo-problema">
+      <div class="contenedor con-foto">
+        <div class="historia">
+        <h2 id="titulo-problema">¿Por qué existe SoporTEC?</h2>
+        <p>Muchas personas no saben a dónde acudir ni cuánto les costará reparar su computadora. Es común encontrar talleres sin precios claros, sin garantía formal y con poca confianza. Además, se conoce poco el mantenimiento preventivo, lo que provoca fallas, pérdida de información y gastos innecesarios.</p>
+        <p>Por eso publicamos nuestras tarifas y creamos un <a href="seguimiento.html">seguimiento en línea</a>: así sabes en qué etapa está tu reparación sin tener que llamar.</p>
+      </div>
+        <figure class="foto">
+          <img src="img/por-que-soportec.jpg" width="1200" height="800" loading="lazy" decoding="async"
+               alt="Laptop abierta con el ventilador y el procesador a la vista, y una llave de mantenimiento">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======== RESUMEN DE SERVICIOS DESTACADOS (3 tarjetas con Flexbox) ======== -->
+    <section class="seccion seccion--degradado" id="destacados">
+      <div class="contenedor">
+        <h2>Servicios destacados</h2>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <svg class="tarjeta__icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="6"/><path d="M24 6v8M24 34v8M6 24h8M34 24h8M11 11l6 6M31 31l6 6M37 11l-6 6M17 31l-6 6"/></svg>
+            <h3>Mantenimiento preventivo</h3>
+            <p>Limpieza interna y cambio de pasta térmica para que tu equipo no se caliente ni se apague solo.</p>
+            <a class="enlace" href="servicios.html">Ver tarifas</a>
+          </article>
+          <article class="tarjeta">
+            <svg class="tarjeta__icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="24" rx="3"/><path d="M16 42h16M24 34v8M18 22l5 5 8-9"/></svg>
+            <h3>Formateo e instalación</h3>
+            <p>Instalamos Windows, Office y los programas que necesitas para clases o trabajo.</p>
+            <a class="enlace" href="servicios.html">Ver tarifas</a>
+          </article>
+          <article class="tarjeta">
+            <svg class="tarjeta__icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="12" width="24" height="24" rx="3"/><rect x="19" y="19" width="10" height="10"/><path d="M18 6v6M30 6v6M18 36v6M30 36v6M6 18h6M6 30h6M36 18h6M36 30h6"/></svg>
+            <h3>Cambio de piezas</h3>
+            <p>Cambio de disco SSD y otras piezas, con cotización previa antes de empezar.</p>
+            <a class="enlace" href="servicios.html">Ver tarifas</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <!-- El año se completa solo con JavaScript (js/dom.js) -->
+      <p>SoporTEC © <span id="anio">2026</span> — Soporte Técnico de Laptops y PCs (Comas, Lima, Perú)</p>
+      <p class="pie__enlaces">
+        <a href="index.html">Inicio</a> | <a href="servicios.html">Servicios</a> |
+        <a href="seguimiento.html">Seguimiento</a> | <a href="nosotros.html">Nosotros</a> | <a href="contacto.html">Contacto</a>
+        &nbsp;•&nbsp; <a href="https://wa.me/51999888777" target="_blank" rel="noopener">WhatsApp: +51 999 888 777</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (al final del body) ============ -->
+  <!-- 1) Librería jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2) Nuestros efectos con jQuery -->
+  <script src="js/main.js"></script>
+  <!-- 3) Manipulación del DOM con JavaScript puro -->
+  <script src="js/dom.js"></script>
+</body>
+</html>

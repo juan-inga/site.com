@@ -1,0 +1,992 @@
+/* =====================================================================
+   SoporTEC - Hoja de estilos global (css/styles.css)
+   Requisitos que cubre: 3 (estilos globales), 4 (responsivo), 5 (animaciones)
+   Orden del archivo:
+     1. Variables (colores y medidas)
+     2. Reinicio y estilos base
+     3. Cabecera y menú de navegación
+     4. Botones
+     5. Banner / slider (inicio)
+     6. Secciones y tarjetas
+     7. Página Servicios
+     8. Página Nosotros
+     9. Página Contacto (formulario)
+    10. Pie de página
+    11. Animaciones (@keyframes)
+    12. Diseño responsivo (media queries)
+   ===================================================================== */
+
+/* ---------- 1. VARIABLES ----------
+   Las variables CSS (--nombre) permiten cambiar un color en un solo lugar.
+   Se usan después con var(--nombre). Paleta: azul marino + cian + verde,
+   tomada de la paleta de color del proyecto. */
+:root {
+  /* Fondos */
+  --fondo: #16428b;           /* Fondo general de las secciones (azul) */
+  --fondo-alterno: #0f3577;   /* Secciones alternas: un tono más oscuro */
+  --marino: #052651;          /* Cabecera */
+  --noche: #03172f;           /* Banner de inicio y pie de página */
+  --tarjeta: rgba(3, 24, 44, 0.78);   /* Tarjetas oscuras translúcidas */
+
+  /* Títulos y enlaces */
+  --aqua: #40e1d4;            /* Títulos principales */
+  --cian: #3cdeed;            /* Subtítulos, enlaces y foco */
+
+  /* Verdes (acción y acentos) */
+  --verde: #069a50;           /* Botones */
+  --verde-oscuro: #047a40;    /* Botones al pasar el mouse */
+  --verde-borde: #1aaa77;     /* Barras laterales y bordes */
+  --verde-icono: #15c487;     /* Iconos, precios y "TEC" del logo */
+
+  /* Azules de acento (bordes de tarjetas) */
+  --azul-borde: #1a78d6;
+  --azul-oscuro: #135cae;
+  --cian-borde: #1fa8d8;
+
+  /* Texto */
+  --texto: #efffff;           /* Texto principal (claro sobre fondo azul) */
+  --texto-suave: #b9d4ee;     /* Texto secundario */
+  --blanco: #ffffff;
+
+  --borde: rgba(120, 200, 255, 0.30);
+  --error: #ff7a8a;
+  --radio: 10px;
+  --ancho-max: 1100px;
+}
+
+/* ---------- 2. REINICIO Y ESTILOS BASE ---------- */
+* {
+  box-sizing: border-box;   /* El padding y el borde ya no agrandan las cajas */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Roboto", Arial, sans-serif; /* Si Inter no carga, usa Roboto y luego Arial */
+  color: var(--texto);
+  background-color: var(--fondo);
+  line-height: 1.6;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--cian);
+}
+
+h1, h2, h3 {
+  color: var(--aqua);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--cian);
+}
+
+/* .contenedor centra el contenido y limita su ancho en pantallas grandes */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Accesibilidad: se ve claramente qué elemento tiene el foco al usar el teclado */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--cian);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. CABECERA Y MENÚ ---------- */
+.cabecera {
+  background-color: var(--marino);
+  position: sticky;  /* La barra se queda arriba al hacer scroll */
+  top: 0;
+  z-index: 10;
+}
+
+.cabecera__fila {
+  display: flex;                    /* Flexbox: logo a la izquierda, menú a la derecha */
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+}
+
+.logo {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: var(--verde-icono);
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+}
+
+.menu a {
+  display: block;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: background-color 0.25s ease; /* Transición suave al pasar el mouse */
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Página actual: se marca con la clase "activo" en el HTML (borde claro) */
+.menu a.activo {
+  border-color: #f1fcff;
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+/* Botón hamburguesa: oculto en PC, visible en móvil (ver media queries) */
+.menu-boton {
+  display: none;
+  background: none;
+  border: 2px solid var(--blanco);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---------- 4. BOTONES ---------- */
+.boton {
+  display: inline-block;
+  background-color: var(--verde);
+  color: var(--blanco);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  /* Transiciones hover: cambian color y posición con suavidad */
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.boton:hover {
+  background-color: var(--verde-oscuro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.boton--azul {
+  background-color: var(--azul-borde);
+}
+
+.boton--azul:hover {
+  background-color: var(--azul-oscuro);
+}
+
+/* ---------- 5. BANNER / SLIDER ---------- */
+.banner {
+  position: relative;       /* La imagen se coloca respecto al banner */
+  overflow: hidden;
+  background-color: var(--noche);
+  background-image: url("../img/fondo-circuito.svg"); /* Líneas de circuito muy tenues */
+}
+
+/* Imagen del banner (laptop). Su borde izquierdo se difumina con una
+   máscara para que se funda con el fondo oscuro y no se note el corte. */
+.banner__imagen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(52vw, 800px);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+}
+
+.slider {
+  position: relative;
+  z-index: 1;               /* El texto queda por encima de la imagen */
+  min-height: 380px;
+}
+
+/* Cada slide ocupa todo el ancho. jQuery los muestra y oculta con fadeIn/fadeOut */
+.slide {
+  display: none;          /* Todos ocultos; main.js muestra el primero */
+  min-height: 380px;
+}
+
+.slide__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  min-height: 380px;
+  max-width: 560px;
+  padding: 40px 0 60px;
+  animation: subir 0.8s ease both; /* Se anima cada vez que el slide aparece */
+}
+
+.slide h1 {
+  font-size: 2.4rem;
+  color: var(--blanco);
+}
+
+.slide p {
+  font-size: 1.15rem;
+  max-width: 55ch; /* Líneas de máximo ~55 caracteres: más fáciles de leer */
+  color: #e3f2ff;
+}
+
+/* El botón principal del banner "late" suavemente para llamar la atención */
+.boton--pulso {
+  animation: pulso 2.4s ease-in-out infinite;
+}
+
+/* Puntos de navegación del slider */
+.slider__puntos {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.punto {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--blanco);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.punto:hover {
+  transform: scale(1.2);
+}
+
+.punto.activo {
+  background: var(--blanco);
+}
+
+/* ---------- 6. SECCIONES Y TARJETAS ---------- */
+.seccion {
+  padding: 56px 0;
+}
+
+/* Sección alterna: conserva el nombre "blanca" del diseño original,
+   pero ahora usa un azul un poco más oscuro que el fondo general. */
+.seccion--blanca {
+  background-color: var(--fondo-alterno);
+}
+
+/* Sección con degradado azul → verde azulado (Servicios destacados) */
+.seccion--degradado {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(11, 135, 135, 0.95) 0%, rgba(11, 135, 135, 0) 55%),
+    radial-gradient(circle at 100% 100%, rgba(3, 80, 106, 0.9) 0%, rgba(3, 80, 106, 0) 55%),
+    linear-gradient(180deg, #004da9 0%, #011e48 100%);
+}
+
+.seccion--degradado h2 {
+  color: var(--blanco);
+}
+
+.seccion__intro {
+  max-width: 65ch;
+  margin-bottom: 28px;
+}
+
+.pagina-titulo {
+  background-color: var(--fondo-alterno);
+  border-bottom: 1px solid var(--borde);
+  padding: 44px 0;
+}
+
+.pagina-titulo h1 {
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+}
+
+/* Fila de valores (Diagnóstico claro, Precios transparentes, Garantía formal) */
+.valores {
+  display: flex;
+  flex-wrap: wrap;   /* Si no caben, bajan a la siguiente línea */
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.valor {
+  flex: 1 1 240px;   /* Crece, se encoge y tiene un ancho base de 240px */
+  border-left: 4px solid var(--verde-borde);
+  padding: 4px 0 4px 16px;
+}
+
+.valor strong {
+  display: block;
+  color: var(--cian);
+}
+
+/* Contenedor flexbox de tarjetas */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Cada tarjeta usa un color de acento (verde, cian, azul) para borde, brillo e icono */
+.tarjeta {
+  --acento: #22c58b;
+  --brillo: rgba(34, 197, 139, 0.35);
+  flex: 1 1 280px;
+  background-color: var(--tarjeta);
+  border: 2px solid var(--acento);
+  border-radius: var(--radio);
+  padding: 26px;
+  box-shadow: 0 0 16px -2px var(--brillo);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:nth-child(2) {
+  --acento: var(--cian-borde);
+  --brillo: rgba(31, 168, 216, 0.35);
+}
+
+.tarjeta:nth-child(3) {
+  --acento: var(--azul-borde);
+  --brillo: rgba(26, 120, 214, 0.45);
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 26px 0 var(--brillo);
+}
+
+.tarjeta__icono {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 14px;
+  color: var(--acento);
+}
+
+/* Enlace de la tarjeta: botón con contorno del color de acento */
+.tarjeta a.enlace {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  border: 2px solid var(--acento);
+  border-radius: 8px;
+  color: var(--blanco);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+
+.tarjeta a.enlace:hover {
+  background-color: var(--brillo);
+}
+
+/* Fotos de apoyo (figure.foto): object-fit hace que cualquier foto que pongas
+   en img/ con el mismo nombre se recorte a 3:2 sin deformarse ni mover el diseño. */
+.con-foto {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.con-foto .historia {
+  flex: 1 1 0;
+  max-width: none;
+}
+
+.pagina-titulo .con-foto {
+  justify-content: space-between;
+}
+
+.pagina-titulo .con-foto > div {
+  flex: 1 1 0;
+}
+
+.foto {
+  flex: 0 1 440px;
+  margin: 0;
+}
+
+.foto--chica {
+  flex-basis: 320px;
+}
+
+.foto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 2px solid var(--cian-borde);
+  border-radius: var(--radio);
+  box-shadow: 0 0 18px -2px rgba(31, 168, 216, 0.35);
+}
+
+/* Seguimiento: columna con el formulario y la foto debajo */
+.consulta-col {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.consulta-col .consulta {
+  flex: none;
+}
+
+@media (max-width: 900px) {
+  .con-foto {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .foto,
+  .foto--chica {
+    flex-basis: auto;
+    max-width: 480px;
+  }
+
+  .consulta-col {
+    width: 100%;
+    flex: none;
+  }
+
+  .consulta-col .foto {
+    display: none;   /* En móvil se oculta para que el resultado se vea primero */
+  }
+}
+
+/* ---------- 7. PÁGINA SERVICIOS ---------- */
+.catalogo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.servicio {
+  background-color: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--verde-borde);
+  border-radius: var(--radio);
+  padding: 20px 24px;
+}
+
+.servicio__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.servicio__nombre {
+  margin: 0;
+}
+
+.precio {
+  color: var(--verde-icono);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Detalle oculto: jQuery lo despliega con slideToggle al pulsar el botón */
+.servicio__detalle {
+  display: none;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--borde);
+}
+
+.boton-detalle {
+  background: none;
+  border: none;
+  color: var(--cian);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 0;
+}
+
+.boton-detalle:hover {
+  color: var(--blanco);
+}
+
+.nota {
+  margin-top: 16px;
+  font-size: 0.95rem;
+}
+
+.garantia {
+  background-color: rgba(6, 154, 80, 0.18);
+  border: 2px solid var(--verde-borde);
+  border-radius: var(--radio);
+  padding: 24px;
+  text-align: center;
+}
+
+.garantia h2 {
+  color: var(--verde-icono);
+  margin-bottom: 4px;
+}
+
+/* ---------- 8. PÁGINA NOSOTROS ---------- */
+.historia {
+  max-width: 70ch;
+}
+
+.historia p + p {
+  margin-top: 14px;
+}
+
+.integrante {
+  text-align: center;
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background-color: var(--marino);
+  border: 3px solid var(--acento);
+  color: var(--blanco);
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codigo {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ---------- 9. PÁGINA CONTACTO ---------- */
+.contacto {
+  display: flex;      /* Dos columnas con flexbox: formulario | datos */
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.contacto__formulario {
+  flex: 3 1 0;
+  background-color: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 28px;
+}
+
+.contacto__datos {
+  flex: 2 1 0;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--texto);
+  padding: 10px 12px;
+  border: 2px solid var(--borde);
+  border-radius: 8px;
+  background-color: rgba(2, 18, 38, 0.65);
+  color-scheme: dark;       /* Las listas desplegables también se ven oscuras */
+  transition: border-color 0.25s ease;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: var(--texto-suave);
+  opacity: 0.75;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--cian);
+}
+
+.campo textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Estados de validación: la clase la agrega formulario.js */
+.campo .invalido {
+  border-color: var(--error);
+}
+
+.campo .valido {
+  border-color: var(--verde-icono);
+}
+
+.error {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 4px;
+  color: var(--error);
+  font-size: 0.9rem;
+}
+
+.mensaje-exito {
+  display: none;      /* formulario.js lo muestra cuando todo está bien */
+  background-color: rgba(6, 154, 80, 0.22);
+  border: 2px solid var(--verde-borde);
+  color: #c9f7de;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.dato {
+  margin-bottom: 18px;
+}
+
+.dato strong {
+  display: block;
+  color: var(--cian);
+}
+
+.mapa {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  border-radius: var(--radio);
+}
+
+/* ---------- 10. PIE DE PÁGINA ---------- */
+.pie {
+  border-top: 5px solid #d91023;   /* Franja roja: guiño a la bandera del Perú */
+  background-color: var(--noche);
+  color: var(--blanco);
+  text-align: center;
+  padding: 32px 0;
+}
+
+.pie p + p {
+  margin-top: 8px;
+}
+
+.pie a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.pie a:hover {
+  color: var(--blanco);
+  text-decoration: underline;
+}
+
+.pie__enlaces {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ---------- 11. ANIMACIONES (@keyframes) ----------
+   @keyframes define los pasos de una animación; se activa con la
+   propiedad "animation" (ver .slide__contenido y .boton--pulso). */
+@keyframes subir {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulso {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(6, 154, 80, 0.6); }
+  50%      { box-shadow: 0 0 0 12px rgba(6, 154, 80, 0); }
+}
+
+/* Si la persona pidió menos movimiento en su sistema, se desactivan */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 12. DISEÑO RESPONSIVO (media queries) ----------
+   Se escribe de pantallas grandes a pequeñas: cada bloque se aplica
+   solo cuando el ancho de la pantalla es MENOR al indicado. */
+
+/* Pantallas medianas: la imagen pasa a ser un fondo tenue detrás del texto */
+@media (max-width: 960px) {
+  .banner__imagen {
+    width: 100%;
+    opacity: 0.3;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .slide__contenido {
+    max-width: 680px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .contacto {
+    flex-direction: column;   /* Las dos columnas pasan a una sola */
+  }
+
+  .contacto__formulario,
+  .contacto__datos {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .menu-boton {
+    display: block;   /* Aparece la hamburguesa */
+  }
+
+  .cabecera__fila {
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* El menú queda oculto; jQuery lo abre con slideToggle */
+  .menu {
+    display: none;
+    width: 100%;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 8px 0 4px;
+  }
+
+  .slide h1 {
+    font-size: 1.8rem;
+  }
+
+  .slider,
+  .slide,
+  .slide__contenido {
+    min-height: 340px;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  .seccion {
+    padding: 40px 0;
+  }
+
+  .contacto__formulario {
+    padding: 20px;
+  }
+}
+
+/* ---------- Utilidades y estados de carga ---------- */
+.solo-lectores {            /* Texto solo para lectores de pantalla (SEO y accesibilidad) */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.estado-carga {
+  padding: 16px 20px;
+  background-color: var(--tarjeta);
+  border: 1px dashed var(--borde);
+  border-radius: var(--radio);
+}
+
+.estado-carga--error {
+  border: 2px solid var(--error);
+  color: #ffc9d0;
+}
+
+.verde {
+  color: var(--verde-icono);
+}
+
+.contador {
+  display: block;
+  margin-top: 4px;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* ---------- Página Seguimiento ---------- */
+.seguimiento {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.consulta {
+  flex: 2 1 0;
+  background-color: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--verde-borde);
+  border-radius: var(--radio);
+  padding: 28px;
+}
+
+.resultado {
+  flex: 3 1 0;
+  min-height: 1px;
+}
+
+.reparacion {
+  background-color: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 28px;
+}
+
+.reparacion__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.reparacion__cabecera h2 {
+  margin: 0;
+}
+
+.reparacion h3 {
+  margin-top: 22px;
+}
+
+.estado {
+  background-color: rgba(60, 222, 237, 0.18);
+  color: var(--cian);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.estado--listo {
+  background-color: rgba(21, 196, 135, 0.22);
+  color: #7ff0c4;
+}
+
+/* Línea de tiempo de etapas */
+.etapas {
+  list-style: none;
+  border-left: 3px solid var(--borde);
+  margin-left: 12px;
+}
+
+.etapas li {
+  position: relative;
+  padding: 0 0 18px 26px;
+}
+
+.etapas li::before {          /* Círculo de cada etapa */
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background-color: var(--marino);
+  border: 3px solid var(--borde);
+}
+
+.etapas li span {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.etapas li.hecha::before {
+  background-color: var(--verde-icono);
+  border-color: var(--verde-icono);
+}
+
+.etapas li.actual::before {
+  background-color: var(--cian);
+  border-color: var(--cian);
+  animation: pulso-azul 2s ease-in-out infinite;
+}
+
+.etapas li.pendiente {
+  color: var(--texto-suave);
+}
+
+.evidencias {
+  margin-left: 22px;
+}
+
+@keyframes pulso-azul {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(60, 222, 237, 0.55); }
+  50%      { box-shadow: 0 0 0 8px rgba(60, 222, 237, 0); }
+}
+
+@media (max-width: 900px) {
+  .seguimiento {
+    flex-direction: column;
+  }
+
+  .consulta,
+  .resultado {
+    width: 100%;
+    flex: none;
+  }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto y cotización | SoporTEC</title>
+  <meta name="description" content="Solicita una cotización o cita con SoporTEC. Formulario de contacto, WhatsApp y ubicación en Comas, Lima.">
+  <meta name="keywords" content="soporte técnico, reparación de laptops, mantenimiento de PC, formateo, seguimiento de reparaciones, Comas, Lima, Perú">
+  <meta name="author" content="Equipo SoporTEC">
+  <meta name="theme-color" content="#052651">
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contacto y cotización | SoporTEC">
+  <meta property="og:description" content="Solicita una cotización o cita con SoporTEC. Formulario de contacto, WhatsApp y ubicación en Comas, Lima.">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA Y NAVEGACIÓN ============ -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="SoporTEC, ir al inicio">Sopor<span>TEC</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en móviles (jQuery abre/cierra el menú) -->
+      <button class="menu-boton" id="menuBoton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">&#9776;</button>
+
+      <nav class="menu" id="menuNav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="seguimiento.html">Seguimiento</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html" class="activo" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="pagina-titulo">
+      <div class="contenedor">
+        <h1>Solicita tu cotización</h1>
+        <p>Cuéntanos qué le pasa a tu equipo y te respondemos. Los campos con * son obligatorios.</p>
+      </div>
+    </section>
+
+    <!-- ======== DOS COLUMNAS RESPONSIVAS (Flexbox) ======== -->
+    <section class="seccion">
+      <div class="contenedor contacto">
+
+        <!-- Columna izquierda: formulario con validación JS + regex -->
+        <div class="contacto__formulario">
+          <h2>Formulario de contacto</h2>
+
+          <!-- Aquí aparece el mensaje de éxito (lo controla js/formulario.js) -->
+          <div class="mensaje-exito" id="mensajeExito" role="status"></div>
+
+          <!-- novalidate: desactiva la validación del navegador para usar la nuestra -->
+          <form id="formContacto" novalidate>
+
+            <div class="campo">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Ej.: María Quispe">
+              <span class="error" id="error-nombre" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo *</label>
+              <input type="email" id="correo" name="correo" autocomplete="email" placeholder="nombre@correo.com">
+              <span class="error" id="error-correo" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label for="telefono">Teléfono (9 dígitos) *</label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="9" placeholder="999888777">
+              <span class="error" id="error-telefono" role="alert"></span>
+            </div>
+
+            <div class="campo">
+              <label for="equipo">Equipo</label>
+              <select id="equipo" name="equipo">
+                <option value="laptop">Laptop</option>
+                <option value="pc">PC de escritorio</option>
+                <option value="all-in-one">All-in-one</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="falla">Falla *</label>
+              <textarea id="falla" name="falla" maxlength="300" placeholder="Ej.: Mi laptop se apaga sola a los 10 minutos de usarla."></textarea>
+              <!-- js/dom.js actualiza este contador mientras escribes -->
+              <small class="contador" id="contadorFalla">0 / 300 caracteres</small>
+              <span class="error" id="error-falla" role="alert"></span>
+            </div>
+
+            <button class="boton" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+
+        <!-- Columna derecha: datos de contacto y ubicación -->
+        <aside class="contacto__datos">
+          <h2>Datos de contacto</h2>
+          <div class="dato"><strong>Ubicación</strong> Comas, Lima</div>
+          <div class="dato"><strong>WhatsApp</strong> <a href="https://wa.me/51999888777" target="_blank" rel="noopener">+51 999 888 777</a></div>
+          <!-- Horario de ejemplo: cámbialo por el real del negocio -->
+          <div class="dato"><strong>Horario</strong> Lunes a sábado, de 9:00 a. m. a 7:00 p. m.</div>
+
+          <!-- Mapa de Google Maps (necesita internet) -->
+          <iframe class="mapa" title="Mapa de Comas, Lima" loading="lazy"
+                  src="https://maps.google.com/maps?q=Comas,Lima,Per%C3%BA&amp;output=embed"></iframe>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <!-- El año se completa solo con JavaScript (js/dom.js) -->
+      <p>SoporTEC © <span id="anio">2026</span> — Soporte Técnico de Laptops y PCs (Comas, Lima, Perú)</p>
+      <p class="pie__enlaces">
+        <a href="index.html">Inicio</a> | <a href="servicios.html">Servicios</a> |
+        <a href="seguimiento.html">Seguimiento</a> | <a href="nosotros.html">Nosotros</a> | <a href="contacto.html">Contacto</a>
+        &nbsp;•&nbsp; <a href="https://wa.me/51999888777" target="_blank" rel="noopener">WhatsApp: +51 999 888 777</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (al final del body) ============ -->
+  <!-- 1) Librería jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2) Nuestros efectos con jQuery -->
+  <script src="js/main.js"></script>
+  <!-- 3) Manipulación del DOM con JavaScript puro -->
+  <script src="js/dom.js"></script>
+  <!-- 4) Validación del formulario (JavaScript puro) -->
+  <script src="js/formulario.js"></script>
+</body>
+</html>

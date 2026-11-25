@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguimiento de reparaciones | SoporTEC</title>
+  <meta name="description" content="Consulta en línea el estado de la reparación de tu laptop o PC en SoporTEC: diagnóstico, cotización, repuestos, reparación y entrega.">
+  <meta name="keywords" content="soporte técnico, reparación de laptops, mantenimiento de PC, formateo, seguimiento de reparaciones, Comas, Lima, Perú">
+  <meta name="author" content="Equipo SoporTEC">
+  <meta name="theme-color" content="#052651">
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Seguimiento de reparaciones | SoporTEC">
+  <meta property="og:description" content="Consulta en línea el estado de la reparación de tu laptop o PC en SoporTEC: diagnóstico, cotización, repuestos, reparación y entrega.">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA Y NAVEGACIÓN ============ -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="SoporTEC, ir al inicio">Sopor<span>TEC</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en móviles (jQuery abre/cierra el menú) -->
+      <button class="menu-boton" id="menuBoton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">&#9776;</button>
+
+      <nav class="menu" id="menuNav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="seguimiento.html" class="activo" aria-current="page">Seguimiento</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="pagina-titulo">
+      <div class="contenedor">
+        <h1>Seguimiento de tu reparación</h1>
+        <p>Ingresa el código que te entregamos al recibir tu equipo y revisa en qué etapa está.</p>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-consulta">
+      <div class="contenedor seguimiento">
+
+        <!-- Consulta: js/seguimiento.js usa $.ajax() para leer data/reparaciones.json -->
+        <div class="consulta-col">
+        <form class="consulta" id="formSeguimiento" novalidate>
+          <h2 id="titulo-consulta">Consulta tu código</h2>
+          <div class="campo">
+            <label for="codigo">Código de seguimiento</label>
+            <input type="text" id="codigo" name="codigo" placeholder="Ej.: ST-1001" maxlength="7" autocomplete="off">
+            <span class="error" id="error-codigo" role="alert"></span>
+          </div>
+          <button class="boton" type="submit">Consultar</button>
+          <p class="nota">Para probar el sistema usa los códigos de ejemplo: <strong>ST-1001</strong>, <strong>ST-1002</strong> o <strong>ST-1003</strong>.</p>
+        </form>
+        <figure class="foto">
+          <img src="img/seguimiento-diagnostico.jpg" width="1200" height="800" loading="lazy" decoding="async"
+               alt="Lista de etapas de una reparación con una lupa que revisa el avance">
+        </figure>
+      </div>
+
+        <!-- Aquí se dibuja el resultado -->
+        <div class="resultado" id="resultado" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <!-- El año se completa solo con JavaScript (js/dom.js) -->
+      <p>SoporTEC © <span id="anio">2026</span> — Soporte Técnico de Laptops y PCs (Comas, Lima, Perú)</p>
+      <p class="pie__enlaces">
+        <a href="index.html">Inicio</a> | <a href="servicios.html">Servicios</a> |
+        <a href="seguimiento.html">Seguimiento</a> | <a href="nosotros.html">Nosotros</a> | <a href="contacto.html">Contacto</a>
+        &nbsp;•&nbsp; <a href="https://wa.me/51999888777" target="_blank" rel="noopener">WhatsApp: +51 999 888 777</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (al final del body) ============ -->
+  <!-- 1) Librería jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2) Nuestros efectos con jQuery -->
+  <script src="js/main.js"></script>
+  <!-- 3) Manipulación del DOM con JavaScript puro -->
+  <script src="js/dom.js"></script>
+  <!-- 4) Consulta de seguimiento con AJAX + JSON -->
+  <script src="js/seguimiento.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+[
+  {
+    "codigo": "ST-1001",
+    "cliente": "María Q.",
+    "equipo": "Laptop HP 14 pulgadas",
+    "falla": "Se apaga sola después de 10 minutos de uso",
+    "ingreso": "10/11/2026",
+    "etapaActual": 4,
+    "finalizado": false,
+    "etapas": [
+      { "fecha": "10/11/2026", "nota": "Se revisó temperatura y estado interno del equipo." },
+      { "fecha": "11/11/2026", "nota": "Cotización aprobada: S/ 50 (limpieza interna + pasta térmica)." },
+      { "fecha": "11/11/2026", "nota": "No se necesitan repuestos para esta reparación." },
+      { "fecha": "12/11/2026", "nota": "Limpieza interna en proceso." }
+    ],
+    "evidencias": [
+      "Temperatura en reposo: 92 °C (lo normal es menos de 60 °C).",
+      "Ventilador y disipador obstruidos por polvo.",
+      "Pasta térmica reseca."
+    ]
+  },
+  {
+    "codigo": "ST-1002",
+    "cliente": "Luis P.",
+    "equipo": "PC de escritorio",
+    "falla": "No enciende",
+    "ingreso": "12/11/2026",
+    "etapaActual": 3,
+    "finalizado": false,
+    "etapas": [
+      { "fecha": "12/11/2026", "nota": "Se probó el equipo con otra fuente de energía." },
+      { "fecha": "13/11/2026", "nota": "Cotización aprobada: S/ 120 (cambio de fuente de poder)." },
+      { "fecha": "14/11/2026", "nota": "Esperando la llegada de la fuente de poder." }
+    ],
+    "evidencias": [
+      "La fuente de poder no entrega voltaje a la placa.",
+      "La placa y la memoria funcionan con una fuente de prueba."
+    ]
+  },
+  {
+    "codigo": "ST-1003",
+    "cliente": "Ana R.",
+    "equipo": "Laptop Lenovo IdeaPad",
+    "falla": "Muy lenta y con ventanas emergentes",
+    "ingreso": "05/11/2026",
+    "etapaActual": 5,
+    "finalizado": true,
+    "etapas": [
+      { "fecha": "05/11/2026", "nota": "Se detectaron programas no deseados y virus." },
+      { "fecha": "05/11/2026", "nota": "Cotización aprobada: S/ 35 (eliminación de virus y optimización)." },
+      { "fecha": "05/11/2026", "nota": "No se necesitan repuestos para esta reparación." },
+      { "fecha": "06/11/2026", "nota": "Equipo limpio y optimizado." },
+      { "fecha": "07/11/2026", "nota": "Equipo entregado. Garantía de 30 días activa." }
+    ],
+    "evidencias": [
+      "14 programas no deseados instalados.",
+      "El análisis detectó 3 amenazas activas."
+    ]
+  }
+]

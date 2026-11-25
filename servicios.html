@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios y tarifas | SoporTEC</title>
+  <meta name="description" content="Catálogo de servicios técnicos de SoporTEC con tarifas aproximadas: limpieza interna, formateo, SSD y eliminación de virus.">
+  <meta name="keywords" content="soporte técnico, reparación de laptops, mantenimiento de PC, formateo, seguimiento de reparaciones, Comas, Lima, Perú">
+  <meta name="author" content="Equipo SoporTEC">
+  <meta name="theme-color" content="#052651">
+  <!-- Vista previa al compartir el enlace (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Servicios y tarifas | SoporTEC">
+  <meta property="og:description" content="Catálogo de servicios técnicos de SoporTEC con tarifas aproximadas: limpieza interna, formateo, SSD y eliminación de virus.">
+  <meta property="og:locale" content="es_PE">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA Y NAVEGACIÓN ============ -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="SoporTEC, ir al inicio">Sopor<span>TEC</span></a>
+
+      <!-- Botón hamburguesa: solo se ve en móviles (jQuery abre/cierra el menú) -->
+      <button class="menu-boton" id="menuBoton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuNav">&#9776;</button>
+
+      <nav class="menu" id="menuNav" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html" class="activo" aria-current="page">Servicios</a></li>
+          <li><a href="seguimiento.html">Seguimiento</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======== ENCABEZADO DE CATÁLOGO ======== -->
+    <section class="pagina-titulo">
+      <div class="contenedor con-foto">
+        <div>
+          <h1>Servicios técnicos y tarifas aproximadas</h1>
+          <p>Elige el servicio que necesitas. El precio final se confirma después del diagnóstico.</p>
+        </div>
+        <figure class="foto foto--chica">
+          <img src="img/servicios-encabezado.jpg" width="1200" height="800" decoding="async"
+               alt="Unidad SSD con sus tornillos, una llave y un destornillador de servicio técnico">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======== CATÁLOGO DE SERVICIOS (AJAX + JSON: data/servicios.json) ======== -->
+    <section class="seccion" aria-labelledby="titulo-catalogo">
+      <div class="contenedor">
+        <h2 id="titulo-catalogo" class="solo-lectores">Catálogo de servicios</h2>
+        <!-- Las tarjetas ya vienen escritas en el HTML, así se ven siempre (también al abrir
+             el archivo con doble clic). Cuando hay servidor, js/servicios.js vuelve a cargarlas
+             desde data/servicios.json con fetch(). -->
+        <div class="catalogo" id="catalogo" aria-live="polite">
+          <article class="servicio">
+            <div class="servicio__cabecera">
+              <h3 class="servicio__nombre">Limpieza interna + pasta térmica</h3>
+              <span class="precio">S/ 50</span>
+            </div>
+            <button class="boton-detalle" type="button" aria-expanded="false">Ver detalle</button>
+            <div class="servicio__detalle"><p>Abrimos el equipo, limpiamos el polvo de ventiladores y disipador, y cambiamos la pasta térmica. Recomendado si tu laptop se calienta o hace mucho ruido.</p></div>
+          </article>
+          <article class="servicio">
+            <div class="servicio__cabecera">
+              <h3 class="servicio__nombre">Formateo + Windows + Office</h3>
+              <span class="precio">S/ 40</span>
+            </div>
+            <button class="boton-detalle" type="button" aria-expanded="false">Ver detalle</button>
+            <div class="servicio__detalle"><p>Instalación limpia de Windows y Office, con los controladores de tu equipo. Ideal si está lento, con errores o quieres empezar de cero.</p></div>
+          </article>
+          <article class="servicio">
+            <div class="servicio__cabecera">
+              <h3 class="servicio__nombre">Upgrade SSD + clonación</h3>
+              <span class="precio">S/ 60</span>
+            </div>
+            <button class="boton-detalle" type="button" aria-expanded="false">Ver detalle</button>
+            <div class="servicio__detalle"><p>Cambiamos tu disco por un SSD y clonamos tu sistema para que conserves tus archivos y programas, con un arranque mucho más rápido.</p></div>
+          </article>
+          <article class="servicio">
+            <div class="servicio__cabecera">
+              <h3 class="servicio__nombre">Eliminación de virus y optimización</h3>
+              <span class="precio">S/ 35</span>
+            </div>
+            <button class="boton-detalle" type="button" aria-expanded="false">Ver detalle</button>
+            <div class="servicio__detalle"><p>Detectamos y eliminamos virus y programas no deseados, y dejamos tu equipo ordenado para que funcione con mayor fluidez.</p></div>
+          </article>
+        </div>
+        <p class="nota">Las tarifas son referenciales y pueden variar según el estado del equipo.</p>
+      </div>
+    </section>
+
+    <!-- ======== BLOQUE DE GARANTÍA ======== -->
+    <section class="seccion" style="padding-top:0;">
+      <div class="contenedor">
+        <div class="garantia">
+          <h2>30 días de respaldo técnico formal</h2>
+          <p>Todos nuestros servicios incluyen garantía. <a href="contacto.html">Solicita tu cotización</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="contenedor">
+      <!-- El año se completa solo con JavaScript (js/dom.js) -->
+      <p>SoporTEC © <span id="anio">2026</span> — Soporte Técnico de Laptops y PCs (Comas, Lima, Perú)</p>
+      <p class="pie__enlaces">
+        <a href="index.html">Inicio</a> | <a href="servicios.html">Servicios</a> |
+        <a href="seguimiento.html">Seguimiento</a> | <a href="nosotros.html">Nosotros</a> | <a href="contacto.html">Contacto</a>
+        &nbsp;•&nbsp; <a href="https://wa.me/51999888777" target="_blank" rel="noopener">WhatsApp: +51 999 888 777</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (al final del body) ============ -->
+  <!-- 1) Librería jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- 2) Nuestros efectos con jQuery -->
+  <script src="js/main.js"></script>
+  <!-- 3) Manipulación del DOM con JavaScript puro -->
+  <script src="js/dom.js"></script>
+  <!-- 4) Carga del catálogo con AJAX + JSON -->
+  <script src="js/servicios.js"></script>
+</body>
+</html>
